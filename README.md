@@ -21,6 +21,6 @@ $ lwr
 ### Uninstalling
 
 ``` 
-$ make uninstall
+$ lwr suicide
 ```
 
