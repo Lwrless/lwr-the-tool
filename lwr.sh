@@ -5,9 +5,11 @@ case "$1" in
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr become NAME"
 		else
-			sed 's/lwr/'$2'/g' /usr/local/bin/lwr > /usr/local/bin/$2
-			install /usr/local/bin/$2 /usr/local/bin/
+			lwrlwrlwrtmp=$(mktemp -u)
+			sed 's/lwr/'$2'/g' /usr/local/bin/lwr > $lwrlwrlwrtmp
 			rm /usr/local/bin/lwr
+			install $lwrlwrlwrtmp /usr/local/bin/$2
+			rm $lwrlwrlwrtmp
 		fi
 		;;
 	eat)
