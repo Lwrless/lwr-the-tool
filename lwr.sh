@@ -10,7 +10,7 @@ case "$1" in
 		;;
 	excrete)
 		if [ "$2"a = a ]; then
-			echo "Usage: lwr excrete FILE"
+			echo "Usage: lwr excrete FILENAME"
 		else
 			touch $2
 		fi
@@ -20,6 +20,6 @@ case "$1" in
 		rm /usr/local/bin/lwr
 		;;
 	*)
-		echo "Usage: $0 {eat|excrete|suicide}"
+		echo "Usage: lwr {eat|excrete|suicide}"
 		;;
 esac
