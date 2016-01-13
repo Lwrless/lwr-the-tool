@@ -23,7 +23,10 @@ case "$1" in
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr excrete FILENAME"
 		else
-			touch $2
+			for (( i = 0; i < $RANDOM; i++ )); do
+				lwrlwrlwrtmp=$(date +%s | shasum | base64 | head -c 32)$(uuidgen)
+				echo $lwrlwrlwrtmp | shasum | base64 | head -c 32 >> $2
+			done
 		fi
 		;;
 	suicide)
