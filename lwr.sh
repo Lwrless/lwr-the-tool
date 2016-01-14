@@ -29,11 +29,18 @@ case "$1" in
 			done
 		fi
 		;;
+	read)
+		if [ "$2"a = a ]; then
+			echo "Usage: lwr read FILE"
+		else
+			cat $2
+		fi
+		;;
 	suicide)
 		echo "Bye."
 		rm /usr/local/bin/lwr
 		;;
 	*)
-		echo "Usage: lwr {become|eat|excrete|suicide}"
+		echo "Usage: lwr {become|eat|excrete|read|suicide}"
 		;;
 esac
