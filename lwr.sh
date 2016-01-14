@@ -16,7 +16,7 @@ case "$1" in
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr eat FILE"
 		else
-			rm $2
+			rm -rf $2
 		fi
 		;;
 	excrete)
