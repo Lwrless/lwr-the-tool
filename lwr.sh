@@ -6,8 +6,8 @@ case "$1" in
 			echo "Usage: lwr become NAME"
 		else
 			lwrlwrlwrtmp=$(mktemp -u)
-			sed 's/lwr/'$2'/g' /usr/local/bin/lwr > $lwrlwrlwrtmp
-			rm /usr/local/bin/lwr
+			sed 's/lwr/'$2'/g' $0 > $lwrlwrlwrtmp
+			rm $0
 			install $lwrlwrlwrtmp /usr/local/bin/$2
 			rm $lwrlwrlwrtmp
 		fi
@@ -29,6 +29,18 @@ case "$1" in
 			done
 		fi
 		;;
+	heat)
+		if [ "$2"a = a ]; then
+			echo "Usage: lwr heat NUM_LEVEL"
+			echo "To stop: lwr heat stop"
+		elif [ "$2" = "stop" ]; then
+			killall yes
+		else
+			for (( i = 0; i < $2; i++)); do
+				yes > /dev/null &
+			done
+		fi
+		;;
 	read)
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr read FILE"
@@ -38,9 +50,9 @@ case "$1" in
 		;;
 	suicide)
 		echo "Bye."
-		rm /usr/local/bin/lwr
+		rm $0
 		;;
 	*)
-		echo "Usage: lwr {become|eat|excrete|read|suicide}"
+		echo "Usage: lwr {become|eat|excrete|heat|read|suicide}"
 		;;
 esac
