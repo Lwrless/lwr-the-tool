@@ -48,11 +48,18 @@ case "$1" in
 			cat $2
 		fi
 		;;
+	sleep)
+		if [ "$2"a = a ]; then
+			echo "Usage: lwr sleep TIME"
+		else
+			sleep $2
+		fi
+		;;
 	suicide)
 		echo "Bye."
 		rm $0
 		;;
 	*)
-		echo "Usage: lwr {become|eat|excrete|heat|read|suicide}"
+		echo "Usage: lwr {become|eat|excrete|heat|read|sleep|suicide}"
 		;;
 esac
