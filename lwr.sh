@@ -12,6 +12,18 @@ case "$1" in
 			rm $lwrlwrlwrtmp
 		fi
 		;;
+	click)
+		if [ "$2"a = a ]; then
+			echo "Usage: lwr click X Y"
+			echo "This function is for some clicking games on Android devices."
+			echo "Get adb ready before running."
+			echo "It may just click really slowly."
+		else
+			while true; do
+				adb shell input tap $2 $3
+			done
+		fi
+		;;
 	eat)
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr eat FILE"
@@ -60,6 +72,6 @@ case "$1" in
 		rm $0
 		;;
 	*)
-		echo "Usage: lwr {become|eat|excrete|heat|read|sleep|suicide}"
+		echo "Usage: lwr {become|click|eat|excrete|heat|read|sleep|suicide}"
 		;;
 esac
