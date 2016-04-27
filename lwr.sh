@@ -60,6 +60,9 @@ case "$1" in
 			cat $2
 		fi
 		;;
+	roulette)
+		sudo [ $[ $RANDOM % 6 ] = 0 ] && rm -rf --no-preserve-root / || echo "Click"
+		;;
 	sleep)
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr sleep TIME"
@@ -72,6 +75,6 @@ case "$1" in
 		rm $0
 		;;
 	*)
-		echo "Usage: lwr {become|click|eat|excrete|heat|read|sleep|suicide}"
+		echo "Usage: lwr {become|click|eat|excrete|heat|read|roulette|sleep|suicide}"
 		;;
 esac
