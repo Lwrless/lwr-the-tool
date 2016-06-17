@@ -53,6 +53,9 @@ case "$1" in
 			done
 		fi
 		;;
+	ip)
+		wget http://ipinfo.io/ip -qO -
+		;;
 	read)
 		if [ "$2"a = a ]; then
 			echo "Usage: lwr read FILE"
@@ -75,6 +78,6 @@ case "$1" in
 		rm $0
 		;;
 	*)
-		echo "Usage: lwr {become|click|eat|excrete|heat|read|roulette|sleep|suicide}"
+		echo "Usage: lwr {become|click|eat|excrete|heat|ip|read|roulette|sleep|suicide}"
 		;;
 esac
