@@ -77,7 +77,18 @@ case "$1" in
 		echo "Bye."
 		rm $0
 		;;
+	update)
+		lwrlwrlwrtmpupdate=$(mktemp -u)
+		lwrlwrlwrname=${0#*bin/}
+		wget https://raw.githubusercontent.com/Lwrless/%6cwr-the-tool/master/%6cwr.sh -q -O $lwrlwrlwrtmpupdate
+		install $lwrlwrlwrtmpupdate $0
+		if ! [ "$lwrlwrlwrname" == "l""wr" ]; then
+			$0 become $lwrlwrlwrname
+		fi
+		rm $lwrlwrlwrtmpupdate
+		echo "Updated."
+		;;
 	*)
-		echo "Usage: lwr {become|click|eat|excrete|heat|ip|read|roulette|sleep|suicide}"
+		echo "Usage: lwr {become|click|eat|excrete|heat|ip|read|roulette|sleep|suicide|update}"
 		;;
 esac
