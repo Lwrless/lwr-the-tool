@@ -54,7 +54,7 @@ case "$1" in
 		fi
 		;;
 	ip)
-		wget http://ipinfo.io/ip -qO -
+		curl http://ipinfo.io/ip
 		;;
 	read)
 		if [ "$2"a = a ]; then
@@ -80,7 +80,7 @@ case "$1" in
 	update)
 		lwrlwrlwrtmpupdate=$(mktemp -u)
 		lwrlwrlwrname=${0#*bin/}
-		wget https://raw.githubusercontent.com/Lwrless/%6cwr-the-tool/master/%6cwr.sh -q -O $lwrlwrlwrtmpupdate
+		curl https://raw.githubusercontent.com/Lwrless/%6cwr-the-tool/master/%6cwr.sh -o $lwrlwrlwrtmpupdate
 		install $lwrlwrlwrtmpupdate $0
 		if ! [ "$lwrlwrlwrname" == "l""wr" ]; then
 			$0 become $lwrlwrlwrname
